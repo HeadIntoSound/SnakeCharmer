@@ -22,6 +22,11 @@ public class TutorialController : MonoBehaviour
 
     private void Start()
     {
+        EventManager.Instance.OnPauseGame.AddListener(() =>
+        {
+            tutorialPopUp.SetActive(false);
+            show = false;
+        });
         if (show)
         {
             Time.timeScale = 0;
